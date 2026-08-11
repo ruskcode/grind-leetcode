@@ -3,28 +3,28 @@
  * @return {number[][]}
  */
 var permute = function (nums) {
-  let res = [];
-  let len = nums.length;
-  let used = Array(len).fill(false);
   let arr = [];
-
+  let used = Array(nums.length).fill(false);
+  let res = [];
   function backtrack() {
-    if (arr.length === len) {
+    if (arr.length === nums.length) {
       res.push([...arr]);
       return;
     }
-    for (let i = 0; i < len; i++) {
+    for (let i = 0; i < nums.length; i++) {
       if (used[i]) {
         continue;
       }
-      used[i] = true;
       arr.push(nums[i]);
+      used[i] = true;
       backtrack();
-      used[i] = false;
       arr.pop();
+      used[i] = false;
     }
   }
 
   backtrack();
   return res;
 };
+
+console.log("@@@", permute([1, 2, 3]));
