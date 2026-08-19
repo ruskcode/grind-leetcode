@@ -15,3 +15,34 @@
 
 console.log("@@@", maxDeep(1)); // 1
 */
+// 相关函数: typeof Object.values .keys .entries Array.isArray
+
+function maxDeep(obj) {
+  if (
+    typeof obj !== "object" ||
+    obj === null ||
+    Object.values(obj).length === 0
+  ) {
+    return 1;
+  }
+
+  let max = 0;
+  for (let child of Object.values(obj)) {
+    max = Math.max(max, maxDeep(child));
+  }
+
+  return max + 1;
+}
+
+console.log("@@@", maxDeep(1)); // 1
+console.log("@@@", maxDeep("depth")); // 1
+console.log("@@@", maxDeep(true)); // 1
+console.log("@@@", maxDeep(null)); // 1
+console.log("@@@", maxDeep({})); // 1
+console.log("@@@", maxDeep([])); // 1
+console.log("@@@", maxDeep({ test: 123 })); // 2
+console.log("@@@", maxDeep([1, 2, 3])); // 2
+console.log("@@@", maxDeep({ test: [1, 2, 3] })); // 3
+console.log("@@@", maxDeep([1, 2, 3, [2], 1])); // 3
+console.log("@@@", maxDeep({ test: [1, 2, [3]] })); // 4
+console.log("@@@", maxDeep([1, 2, 3, [2, [5, 6, 7]], 1])); // 4
