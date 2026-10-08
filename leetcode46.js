@@ -1,12 +1,8 @@
-/**
- * @param {number[]} nums
- * @return {number[][]}
- */
 var permute = function (nums) {
   let arr = [];
-  let used = Array(nums.length).fill(false);
   let res = [];
-  function backtrack() {
+  let used = Array(nums.length).fill(false);
+  function dfs() {
     if (arr.length === nums.length) {
       res.push([...arr]);
       return;
@@ -17,14 +13,17 @@ var permute = function (nums) {
       }
       arr.push(nums[i]);
       used[i] = true;
-      backtrack();
+      dfs();
       arr.pop();
       used[i] = false;
     }
   }
-
-  backtrack();
+  dfs();
   return res;
 };
 
-console.log("@@@", permute([1, 2, 3]));
+console.log("@@@", permute([2]));
+console.log("@@@", permute([2, 3]));
+console.log("@@@", permute([2, 3, 4]));
+console.log("@@@", permute([-5]));
+console.log("@@@", permute([-5, -10]));
