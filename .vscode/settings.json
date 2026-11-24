@@ -1,5 +1,6 @@
 {
   "code-runner.executorMap": {
-    "typescript": "\"/Users/chia/myproject/grind-leetcode/node_modules/.bin/tsx\""
+    "typescript": "\"/Users/chia/myproject/grind-leetcode/node_modules/.bin/tsx\"",
+    "python": "python3"
   }
 }
