@@ -1,0 +1,10 @@
+{
+  "name": "grind-leetcode",
+  "private": true,
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15"
+  }
+}
